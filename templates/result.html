@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carta Natal Calculada</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tu Carta Natal</h1>
+        
+        <div>
+            <p><strong>Nombre:</strong> {{ name }}</p>
+            <p><strong>Fecha:</strong> {{ date }}</p>
+            <p><strong>Hora:</strong> {{ time }}</p>
+            <p><strong>Ciudad:</strong> {{ city }}</p>
+        </div>
+
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+
+        <div>
+            <h2>Planetas en Signos</h2>
+            <ul>
+                {% for planet, sign in planet_signs.items() %}
+                    <li><strong>{{ planet }}</strong>: {{ sign }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+
+        <div>
+            <h2>Ascendente</h2>
+            <p><strong>Signo Ascendente:</strong> {{ ascendant }}</p>
+        </div>
+
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+
+        <div>
+            <h2>Casas Astrológicas</h2>
+            <ul>
+                {% for house, sign in houses.items() %}
+                    <li><strong>Casa {{ house }}</strong>: {{ sign }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="/" style="display: block; text-align: center; margin-top: 40px; color: var(--accent); text-decoration: none;">← Volver al inicio</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tu Carta Natal</title>
+  <link rel="stylesheet" href="/public/style.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqEafbiWs9DC_3ImdzN7xDCtPcgLmyl1c&libraries=places"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>¿Cuál es tu número de poder?</h1>
+    <form action="/result" method="post">
+      <label for="name">Nombre completo:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="birthdate">Fecha de nacimiento:</label>
+      <input type="date" id="birthdate" name="birthdate" required>
+
+      <label for="birthtime">Hora de nacimiento:</label>
+      <input type="time" id="birthtime" name="birthtime" required>
+
+      <label for="city">Ciudad de nacimiento:</label>
+      <input type="text" id="city" name="city" required placeholder="Ej. Lima, Perú">
+
+      <input type="hidden" id="latitude" name="latitude">
+      <input type="hidden" id="longitude" name="longitude">
+      <input type="hidden" id="timezone" name="timezone">
+
+      <button type="submit">Revelar mi Carta</button>
+    </form>
+  </div>
+
+  <script>
+    function initAutocomplete() {
+      const input = document.getElementById('city');
+      const autocomplete = new google.maps.places.Autocomplete(input);
+
+      autocomplete.addListener('place_changed', async function () {
+        const place = autocomplete.getPlace();
+        const lat = place.geometry.location.lat();
+        const lng = place.geometry.location.lng();
+
+        document.getElementById('latitude').value = lat;
+        document.getElementById('longitude').value = lng;
+
+        // Obtener zona horaria usando OpenCage
+        const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=1e117b2b4d64499d9c5c7d2b0cf6b92f`);
+        const data = await response.json();
+        const timezone = data.results[0].annotations.timezone.name;
+
+        document.getElementById('timezone').value = timezone;
+      });
+    }
+
+    window.onload = initAutocomplete;
+  </script>
+</body>
+</html>
