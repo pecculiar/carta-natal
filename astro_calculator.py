@@ -1,6 +1,6 @@
-    from flatlib.chart import Chart
-    from flatlib.datetime import Datetime
-    from flatlib.geopos import GeoPos
+from flatlib.chart import Chart
+from flatlib.datetime import Datetime
+from flatlib.geopos import GeoPos
 
     def generar_carta(fecha, hora, lat, lon):
         date = Datetime(f'{fecha}', f'{hora}', '+00:00')
