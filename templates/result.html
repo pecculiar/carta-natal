@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tu Carta Natal</title>
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Carta natal de {{ name }}</h1>
+    <p>Fecha: {{ date }} – Hora: {{ time }} – Ciudad: {{ city }}</p>
+    <ul>
+      {% for item in resultado %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    <a href="/">← Volver</a>
+  </div>
+</body>
+</html>

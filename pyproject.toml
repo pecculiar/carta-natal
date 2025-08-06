@@ -1,0 +1,11 @@
+[project]
+name = "pecculiar-carta-natal"
+version = "0.1.0"
+description = "Carta natal con Flask y Flatlib"
+requires-python = ">=3.11"
+
+dependencies = [
+  "flask",
+  "flatlib",
+  "requests"
+]

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta Natal</title>
+  <link rel="stylesheet" href="/public/styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKvUxMkwBq3Prq1MFypIRJjQ2EFk5yi8&libraries=places&callback=initAutocomplete" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Carta Natal</h1>
+    <form action="/result" method="post">
+      <input type="text" name="name" placeholder="Tu nombre" required><br>
+      <input type="date" name="date" required><br>
+      <input type="time" name="time" required><br>
+      <input id="city" name="city" type="text" placeholder="Ciudad de nacimiento" required><br>
+      <input id="lat" name="lat" placeholder="Latitud (opcional)">
+      <input id="lon" name="lon" placeholder="Longitud (opcional)">
+      <button type="submit">Ver mi carta</button>
+    </form>
+  </div>
+
+  <script src="/public/index.js"></script>
+</body>
+</html>
