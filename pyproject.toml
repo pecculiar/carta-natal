@@ -1,7 +1,11 @@
 [project]
-name = "python-template"
+name = "pecculiar-carta-natal"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Carta natal con Flask y Flatlib"
 requires-python = ">=3.11"
-dependencies = []
+
+dependencies = [
+  "flask",
+  "flatlib",
+  "requests"
+]
